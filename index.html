@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex Johnson - Creative Developer</title>
+    <title>Mugesh V - Software Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -489,6 +489,34 @@
             margin-bottom: 15px;
         }
 
+        /* Salesforce specific styles */
+        .salesforce-icon {
+            color: #00A1E0;
+            font-size: 2.5rem;
+        }
+
+        .salesforce-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 161, 224, 0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            border: 1px solid rgba(0, 161, 224, 0.3);
+        }
+
+        .salesforce-badge i {
+            color: #00A1E0;
+        }
+
+        .salesforce-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
         /* Projects Section */
         .projects-grid {
             display: grid;
@@ -593,6 +621,89 @@
         .project-link:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Education Section */
+        .education-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, #00d4ff, #7b2cbf);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 100%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            padding-right: 50%;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            padding-left: 50%;
+            text-align: left;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .timeline-date {
+            color: #00d4ff;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .timeline-details {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #00d4ff, #7b2cbf);
+            top: 0;
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            left: -10px;
         }
 
         /* Contact Section */
@@ -838,6 +949,20 @@
             .social-links {
                 left: 20px;
             }
+            
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding: 0;
+                text-align: left;
+            }
+            
+            .education-timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item::before {
+                left: 10px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -924,11 +1049,12 @@
         <div class="header-container">
             <a href="#home" class="logo">
                 <i class="fas fa-code logo-icon"></i>
-                <span>Alex Johnson</span>
+                <span>Mugesh V</span>
             </a>
             <ul class="nav-links">
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -944,7 +1070,7 @@
         <div class="mobile-menu-header">
             <div class="logo">
                 <i class="fas fa-code logo-icon"></i>
-                <span>Alex Johnson</span>
+                <span>Mugesh V</span>
             </div>
             <button class="mobile-menu-btn" id="mobileMenuCloseBtn">
                 <i class="fas fa-times"></i>
@@ -953,6 +1079,7 @@
         <ul class="mobile-menu-links">
             <li><a href="#home" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -962,25 +1089,25 @@
 
     <!-- Social Links -->
     <div class="social-links">
-        <a href="#" class="social-link" aria-label="GitHub">
+        <a href="https://github.com/mugesh713" class="social-link" aria-label="GitHub" target="_blank">
             <i class="fab fa-github"></i>
         </a>
-        <a href="#" class="social-link" aria-label="LinkedIn">
+        <a href="https://linkedin.com/in/mugesh-v-0214ba25a" class="social-link" aria-label="LinkedIn" target="_blank">
             <i class="fab fa-linkedin-in"></i>
         </a>
-        <a href="#" class="social-link" aria-label="Twitter">
-            <i class="fab fa-twitter"></i>
+        <a href="https://leetcode.com/u/MugeshV_04/" class="social-link" aria-label="LeetCode" target="_blank">
+            <i class="fas fa-code"></i>
         </a>
-        <a href="#" class="social-link" aria-label="Dribbble">
-            <i class="fab fa-dribbble"></i>
+        <a href="https://hackerrank.com/profile/mugeshv_22cse" class="social-link" aria-label="HackerRank" target="_blank">
+            <i class="fab fa-hackerrank"></i>
         </a>
     </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Alex Johnson</h1>
-            <p>Creative Developer & Digital Innovator</p>
+            <h1>Mugesh V</h1>
+            <p>Software Developer & Salesforce Developer</p>
             <div class="hero-buttons">
                 <a href="#projects" class="cta-button">
                     <i class="fas fa-eye"></i> View My Work
@@ -1001,32 +1128,60 @@
         <h2 class="section-title">About Me</h2>
         <div class="about-content">
             <div class="about-text">
-                <p>I'm a passionate full-stack developer with over 5 years of experience creating digital experiences that blend creativity with cutting-edge technology. My journey began with a fascination for how code could bring ideas to life, and it has evolved into a career focused on building innovative solutions that make a real impact.</p>
-                <p>I specialize in modern web technologies, user experience design, and have a particular love for creating immersive, interactive experiences. When I'm not coding, you can find me exploring new design trends, contributing to open-source projects, or mentoring aspiring developers.</p>
+                <p>I'm a passionate Computer Science Engineering student at Kongu Engineering College with expertise in full-stack development and machine learning. I specialize in creating innovative solutions that blend creativity with cutting-edge technology.</p>
+                <p>With hands-on experience in web development, machine learning, and database systems, I enjoy building projects that solve real-world problems. My technical skills span across multiple programming languages and frameworks, allowing me to develop robust and scalable applications.</p>
                 
                 <div class="skills-list">
                     <div class="skill-item">
                         <i class="fas fa-check"></i>
-                        <span>Frontend Development</span>
+                        <span>Full Stack Development</span>
                     </div>
                     <div class="skill-item">
                         <i class="fas fa-check"></i>
-                        <span>Backend Systems</span>
+                        <span>Machine Learning</span>
                     </div>
                     <div class="skill-item">
                         <i class="fas fa-check"></i>
-                        <span>UI/UX Design</span>
+                        <span>Database Systems</span>
                     </div>
                     <div class="skill-item">
                         <i class="fas fa-check"></i>
-                        <span>Cloud Architecture</span>
+                        <span>Mobile App Development</span>
                     </div>
                 </div>
             </div>
             <div class="about-image">
                 <div class="profile-container">
                     <!-- Replace with your photo -->
-                    <img src="12.jpg" alt="Alex Johnson" class="profile-photo">
+                    <img src="12.jpg" alt="" class="profile-photo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section" id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="education-timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">2020 - Present</div>
+                    <h3 class="timeline-title">Bachelor of Engineering in Computer Science</h3>
+                    <p class="timeline-details">Kongu Engineering College<br>CGPA: 6.79 (till 5th Semester)</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">2018 - 2020</div>
+                    <h3 class="timeline-title">Higher Secondary Education</h3>
+                    <p class="timeline-details">Shri Ganga Higher Secondary School<br>Percentage: 64.2%</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">2017 - 2018</div>
+                    <h3 class="timeline-title">SSLC</h3>
+                    <p class="timeline-details">Matric.Hr.Sec.School<br>Percentage: 71.6%</p>
                 </div>
             </div>
         </div>
@@ -1040,29 +1195,61 @@
                 <div class="skill-icon">
                     <i class="fas fa-laptop-code"></i>
                 </div>
+                <h3>Programming Languages</h3>
+                <p>C, C++, Java, Python, JavaScript with strong problem-solving skills and algorithmic thinking.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-code"></i>
+                </div>
                 <h3>Frontend Development</h3>
-                <p>React, Vue.js, TypeScript, Next.js, Modern CSS, and responsive design principles with a focus on performance and accessibility.</p>
+                <p>HTML, CSS, ReactJS, React Native with experience in building responsive and interactive user interfaces.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>Database Systems</h3>
+                <p>MySQL, MongoDB, FireBase, Oracle 23ai, PostgresSQL with expertise in database design and optimization.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>Machine Learning</h3>
+                <p>Python, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn with experience in predictive modeling.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fab fa-salesforce salesforce-icon"></i>
+                </div>
+                <h3>Salesforce Development</h3>
+                <p>Salesforce platform development including Apex, Visualforce, Lightning Components, and Salesforce Developer Console.</p>
+                <div class="salesforce-container">
+                    <span class="salesforce-badge">
+                        <i class="fab fa-salesforce"></i>
+                        <span>Apex</span>
+                    </span>
+                    <span class="salesforce-badge">
+                        <i class="fab fa-salesforce"></i>
+                        <span>Visualforce</span>
+                    </span>
+                    <span class="salesforce-badge">
+                        <i class="fab fa-salesforce"></i>
+                        <span>Lightning</span>
+                    </span>
+                    <span class="salesforce-badge">
+                        <i class="fas fa-terminal"></i>
+                        <span>Developer Console</span>
+                    </span>
+                </div>
             </div>
             <div class="skill-card">
                 <div class="skill-icon">
                     <i class="fas fa-server"></i>
                 </div>
                 <h3>Backend Development</h3>
-                <p>Node.js, Python, Express, PostgreSQL, MongoDB, and RESTful API design with secure authentication systems.</p>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">
-                    <i class="fas fa-paint-brush"></i>
-                </div>
-                <h3>UI/UX Design</h3>
-                <p>Figma, Adobe Creative Suite, prototyping, user research, and user-centered design thinking methodologies.</p>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">
-                    <i class="fas fa-cloud"></i>
-                </div>
-                <h3>Cloud & DevOps</h3>
-                <p>AWS, Docker, CI/CD pipelines, infrastructure as code, and modern deployment strategies for scalable applications.</p>
+                <p>Node.js, Express, Django with experience in building RESTful APIs and server-side applications.</p>
             </div>
         </div>
     </section>
@@ -1074,14 +1261,13 @@
             <div class="project-card">
                 <div class="project-image" style="background: linear-gradient(45deg, #00d4ff, #0066ff);"></div>
                 <div class="project-content">
-                    <h3 class="project-title">E-Commerce Platform</h3>
-                    <p class="project-description">A full-stack e-commerce solution with real-time inventory management, payment processing, advanced analytics dashboard, and personalized recommendations.</p>
+                    <h3 class="project-title">Live Collaboration System</h3>
+                    <p class="project-description">Developed a live collaboration system in a Snake game using HTML, CSS, JavaScript, WebSocket, and MongoDB. The WebSocket technology enabled real-time multiplayer interaction, allowing players to join, move their snakes, and see other players' moves instantly.</p>
                     <div class="project-tech">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">Stripe</span>
-                        <span class="tech-tag">Redis</span>
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">WebSocket</span>
+                        <span class="tech-tag">MongoDB</span>
                     </div>
                     <div class="project-links">
                         <a href="#" class="project-link demo">
@@ -1096,14 +1282,13 @@
             <div class="project-card">
                 <div class="project-image" style="background: linear-gradient(45deg, #7b2cbf, #ff006e);"></div>
                 <div class="project-content">
-                    <h3 class="project-title">AI-Powered Task Manager</h3>
-                    <p class="project-description">Smart productivity app that uses machine learning to optimize task scheduling, provide intelligent insights, and predict time requirements for tasks.</p>
+                    <h3 class="project-title">Event App</h3>
+                    <p class="project-description">Developed an event update system for schools and colleges using React Native, MySQL, and Firebase. The app allows institutions to create, manage, and share events in real-time, with Firebase handling authentication and notifications, and MySQL storing event details securely.</p>
                     <div class="project-tech">
-                        <span class="tech-tag">Vue.js</span>
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">MySQL</span>
                         <span class="tech-tag">Firebase</span>
-                        <span class="tech-tag">NLP</span>
+                        <span class="tech-tag">JavaScript</span>
                     </div>
                     <div class="project-links">
                         <a href="#" class="project-link demo">
@@ -1118,14 +1303,34 @@
             <div class="project-card">
                 <div class="project-image" style="background: linear-gradient(45deg, #ff006e, #ff8c00);"></div>
                 <div class="project-content">
-                    <h3 class="project-title">Social Media Dashboard</h3>
-                    <p class="project-description">Comprehensive analytics dashboard for social media managers with real-time data visualization, cross-platform comparison, and automated reporting.</p>
+                    <h3 class="project-title">2-Factor Authenticator (2FA)</h3>
+                    <p class="project-description">Implemented a two-factor authentication system using Node.js to enhance application security. This added an extra layer of protection by requiring both a password and a time-based OTP for user verification.</p>
                     <div class="project-tech">
-                        <span class="tech-tag">Next.js</span>
-                        <span class="tech-tag">TypeScript</span>
-                        <span class="tech-tag">D3.js</span>
-                        <span class="tech-tag">GraphQL</span>
-                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Authentication</span>
+                        <span class="tech-tag">Security</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link demo">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="#" class="project-link code">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image" style="background: linear-gradient(45deg, #ff8c00, #00d4ff);"></div>
+                <div class="project-content">
+                    <h3 class="project-title">Textile App</h3>
+                    <p class="project-description">Developed an application for the textile industry using React Native and MongoDB. The app predicts cotton prices, generates bills, and calculates GST, helping businesses automate and streamline their operations.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Price Prediction</span>
+                        <span class="tech-tag">JavaScript</span>
                     </div>
                     <div class="project-links">
                         <a href="#" class="project-link demo">
@@ -1144,7 +1349,7 @@
     <section class="section" id="contact">
         <h2 class="section-title">Let's Connect</h2>
         <div class="contact-content">
-            <p class="contact-text">Ready to bring your next project to life? I'd love to hear from you and discuss how we can work together to create something amazing. Whether you have a question or just want to say hi, I'll do my best to get back to you!</p>
+            <p class="contact-text">I'm currently looking for new opportunities and would love to hear from you. Whether you have a question or just want to say hi, I'll do my best to get back to you!</p>
             
             <form class="contact-form">
                 <div class="form-group">
@@ -1169,15 +1374,15 @@
             </form>
             
             <div class="contact-info">
-                <a href="mailto:alex@example.com" class="contact-item">
+                <a href="mailto:mugeshv@example.com" class="contact-item">
                     <i class="fas fa-envelope contact-icon"></i>
-                    <span>alex@example.com</span>
+                    <span>mugeshv@example.com</span>
                 </a>
-                <a href="tel:+1234567890" class="contact-item">
+                <a href="tel:+919942744713" class="contact-item">
                     <i class="fas fa-phone contact-icon"></i>
-                    <span>+1 (234) 567-890</span>
+                    <span>+91 9942744713</span>
                 </a>
-                <a href="https://linkedin.com/in/alexjohnson" class="contact-item">
+                <a href="https://linkedin.com/in/mugesh-v-0214ba25a" class="contact-item" target="_blank">
                     <i class="fab fa-linkedin-in contact-icon"></i>
                     <span>LinkedIn</span>
                 </a>
@@ -1188,16 +1393,17 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-logo">Alex Johnson</div>
-            <p class="footer-text">Creating digital experiences that inspire and engage. Let's build something incredible together.</p>
+            <div class="footer-logo">Mugesh V</div>
+            <p class="footer-text">Creating innovative solutions through technology. Let's build something amazing together.</p>
             <div class="footer-links">
                 <a href="#home" class="footer-link">Home</a>
                 <a href="#about" class="footer-link">About</a>
+                <a href="#education" class="footer-link">Education</a>
                 <a href="#skills" class="footer-link">Skills</a>
                 <a href="#projects" class="footer-link">Projects</a>
                 <a href="#contact" class="footer-link">Contact</a>
             </div>
-            <p class="copyright">&copy; 2025 Alex Johnson. All rights reserved.</p>
+            <p class="copyright">&copy; 2024 Mugesh V. All rights reserved.</p>
         </div>
     </footer>
 
@@ -1321,7 +1527,7 @@
         }, observerOptions);
 
         // Observe all sections and cards
-        document.querySelectorAll('.section, .skill-card, .project-card').forEach(element => {
+        document.querySelectorAll('.section, .skill-card, .project-card, .timeline-content').forEach(element => {
             observer.observe(element);
         });
 
@@ -1329,7 +1535,7 @@
         createParticles();
 
         // Dynamic typing effect for hero text
-        let heroText = "Creative Developer & Digital Innovator";
+        let heroText = "Software Developer & Salesforce Developer";
         let heroElement = document.querySelector('.hero-content p');
         let currentText = "";
         let index = 0;
